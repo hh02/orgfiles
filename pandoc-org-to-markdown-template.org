@@ -1,0 +1,11 @@
+#+TITLE: Pandoc Org To Markdown Template
+* Template
+#+BEGIN_QUOTE
+pandoc test.org -f org -t markdown-fenced_code_attributes-smart+backtick_code_blocks+tex_math_dollars --atx-headers --wrap=none -o test.md
+#+END_QUOTE
+* Extention
+(markdown-fenced_code_attributes-smart-yaml_metadata_block-pandoc_title_block+tex_math_dollars)
+* Options
+((wrap . "none")
+ (atx-headers . t)
+ (base-header-level . 2))

@@ -1,0 +1,154 @@
+#+TITLE: Doom Emacs
+* Tutorial
+** 1 Install
+** 2 Projectile, Treemacs  & EShell
+SPC . : find file
+*** 2.1 Projectile
+1. index project : projectile-discover
+2. SPC p p : switch to project
+3. SPC SPC : switch to other file in th project
+
+SPC f p, config.el, modify projectile-project-search-path
+
+*** 2.2 Treemacs, file explorer
+SPC o p
+*** 2.3 Eshell
+eshell : SPC o e
+*** 2.4 Recent files
+recent files : SPC o r
+** 3 A short intro to dired
+*** 3.1 Basic operation
+move(vi keys) : hjkl
+( : switch between the full view and a simple view
+enter : enter directory
+- : out directory
++ : create a new directory
+d : mark as delete
+x : aply operation
+SPC o - : open dired
+o : sort by name or date
+M : modify file mode
+u-w: remove the wirting for the user.
+u+w: add the wirting for the user.
+u-w, g-w : remove the wirting for user and group
+
+d - directory
+r - read
+w - write
+x - execute = running a program
+
+u - user = yourself
+g - group = can be people in the same project
+o - other = everyone on the system
+
+O : change the owner / can not be executed in windows
+*** 3.2 Mark
+*/ : mark all the directory
+t : change marks between files and directories(inverse mark)
+U : unmark all
+u : unmark
+m : mark
+*** 3.3 Files operation
+C-w v: evil-window-vsplit
+C-w C-w : switch between windows
+C-w w : the same as C-w C-w
+C : copy files/directory to the right window
+R : move files/directory
+dired-dwim-target : do what i mean
+i :vi insert mode( rename, :w to save changes)
+** 4 Buffers, Windows and Basic Navigation
+*** 4.1 The conception of buffer, window and frame
+*** 4.2 Options about buffers
+SPC b bswitch to workspace buffer
+SPC b B : switch buffer
+SPC b b <=> SPC ,
+SPC b B <=> SPC <
+SPC < SPC : show hidden buffers
+SPC b k : kill buffer
+SPC b N : new buffer
+SPC b s : save buffer
+SPC b n : next buffer
+C-w hjkl move in buffers
+*** 4.3 Options about windows
+C-w q kill/quit windows
+C-w > increase width
+C-w < decrease width
+C-w + increase height
+C-w - decrease height
+C-w = equal width/height
+** 5 Installing Packages with org-super-agenda as an example
+*** 5.1 Install packages
+1. (package! org-super-agenda) in package.el
+2. doom sync
+3. restart emacs
+*** 5.2 Config
+open config.el, set use-package
+** 6 Quick, horizontal movements with evil-snipe
+f/F: inclusive 1-char sniping
+t/T: exclusive 1-char sniping
+s/S: inclusive 2-char sniping
+x/X: exclusive 2-char sniping
+** 7 Moving around the screen with Avy
+g s SPC [char]: go to the place of char
+SPC h v, avy-all-windows: avy in all windows
+g s SPC [num]: go to the num th window
+g s SPC [char] x: delete the word with char
+g s SPC [char] X: delete the word with char, remain the window
+g s SPC [char] i: change word
+g s SPC [char] y: copy word(char) in here
+g s SPC [char] t: move word(char) in here
+** 8 To be learn(I don't understand)
+** 9 Org Mode, Basic Outlines
+\*: headlines
+numbered list: =<number>.<SPC>=, such as "1. ".
+unnmberd list: "-"
+M up/down: move headlines up/down (j,k)
+M left/right: increase/decrease the headline(h,l)
+S Tab:toggle in circle
+** 10 Links, Hyperlinks and more
+Basic Links: [[]] or SPC-m-l-l
+Link to file： SPC-m-l-l file:
+Link to any line of a file: SPC-m-l-l file: file_name::line_number
+Link to web:
+Link to executing some code: SPC-m-l-l elisp: elisp_code
+Link to agenda: SPC-m-l-l elisp: org-agenda
+List files in my directory: SPC-m-l-l shell: ls *.org
+** 11 Create your own links
+custom link type
+** 12 Linking to words & Bookmarks
+SPC h v org-link-search-must-
+SPC n l: store a note link
+** 13 Code Snippets 101
+<s Tab: Code snippet
+SPC m ': edit in a special buffer.
+C-c C-c: execute the code
+** 14 Getting Organized with Tasks
+org-todo-keywords is a variable defined in config.el
+SPC m t:select the status of the task.
+Time stamp appears when the task is done.
+S-Left/Right(arrow): toggle the status of the task.
+SPC o a t: todo list
+org-agenda-files
+----The difference between M-RET and C-RET;
+** 15 Priorities for Tasks
+S-up/down(arrow): toggle the priority of the task.
+org-fancy-priority
+** 16 Marking Tasks with Tags
+SPC m q: org-set-tag-command.
+SPC o a m: Tags search.
+M-x org-sparse-tree: SPC m s s
+SPC m s s m: only show matched tags.
+org-tags-sparse-tree: == SPC m s s m
+** 17 Checkbox
+C-c C-c can make a ordered / unordered list.
+check box - [ ]
+RET: change the status of the checkbox.
+the percentage of the finished checkbox: [/], [%] (C-c C-c)
+checkbox can not be disigned with tags or priority;
+** 18 Getting start magit
+SPC g g: git staus
+?(q for quit): show all the possibilities you can take from this stage.
+* Notes
+** Org mode
+*** export
+v: org-export-with-sub-superscripts,  -: <sub>, ^: <super>
